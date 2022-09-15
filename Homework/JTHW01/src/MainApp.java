@@ -1,10 +1,9 @@
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Scanner;
+import java.util.*;
+import java.util.stream.Collectors;
+
 /**
  * @author Bagaa
  * @project JTHW01
@@ -15,6 +14,16 @@ import java.util.Scanner;
 public class MainApp {
     MainApp(int probNumber){
         switch (probNumber){
+            case 1:{
+                System.out.println("Problem01: ");
+                System.out.println("\tAnswer: " + sumOfDigitInString());
+                break;
+            }
+            case 2:{
+                System.out.println("Problem02: ");
+                System.out.println("\tAnswer: " + sumOfNumInString());
+                break;
+            }
             case 3:{
                 System.out.println("Problem03: ");
                 System.out.println("\tAnswer: " + mergeTwoString());
@@ -67,23 +76,56 @@ public class MainApp {
             new MainApp(probNumber);
         }
     }
+
     /*
     1. Компьютерийн гараас үсэг, цифр,өөр бусад тэмдэгтүүдээс бүтсэн тэмдэгт
     мөр оруул. Энэ тэмдэгт мөр дэх бүх цифрийн нийлбэрийг олж хэвлэ.Жишээлбэл,
-    alb23c4%&50хувьд 1+2+3+4+5+0=15байна.
+    a1b23c4%&50 хувьд 1+2+3+4+5+0=15байна.
     */
+    String sumOfDigitInString(){
+        String str = inputString("Enter a string: ");
+        String digitStr = str.replaceAll("[^0-9]", "");
+        int sum = 0;
+        String display = "";
+        for (char ch: digitStr.toCharArray()) {
+            int digitChar = (ch - '0');
+            if(digitStr.indexOf(ch) == 0){
+                display = Integer.toString(digitChar);
+            }else{
+                display += (" + " + digitChar);
+            }
+            sum += digitChar;
+        }
+        return display + " = " + sum;
+    }
 
     /*
     2. Компьютерийн гараас үсэг, цифр,өөр бусад тэмдэгтүүдээс бүтсэн тэмдэгт
     мөр оруул. Энэ тэмдэгт мөр дэх бүх бүхэл тоонуудын нийлбэрийг ол.Жишээлбэл,
-    alb23c4%&50хувьд 1 +23+4+50=78байна.
+    a1b23c4%&50 хувьд 1 +23+4+50=78байна.
     */
+    String sumOfNumInString(){
+        String str = inputString("Enter a string: ");
+        ArrayList<String> numStrArr = new ArrayList<>(List.of(str.split("[^0-9]")));
+        int sum = 0;
+        String display = "";
+        for (String strNum: numStrArr.stream().filter(f -> f != "").collect(Collectors.toList())) {
+            int num = Integer.parseInt(strNum);
+            if(sum == 0 && display.equals("")){
+                display = strNum;
+            }else{
+                display += (" + " + strNum);
+            }
+            sum += num;
+        }
+        return display + " = " + sum;
+    }
 
     /*
     3. a,b гэдэг хоёр тэмдэгт мөр өгөгдөв. a тэмдэгт мөрийн эхний үсэг, b тэмдэгт
     мөрийн эхний үсэг,a тэмдэгт мөрийн хоёрдахьүсэг, b тэмдэгт мөрийн хоёрдахьүсэг,
     гэх мэтээр тэмдэгт мөр үүсгэнэ. Үлдсэн тэмдэгтүүдийг үүссэнтэмдэгт мөрийн сүүлд залгана.
-    ("abc","xyz") →"axbycz"
+    ("abc","xyz") → "axbycz"
     */
     String mergeTwoString(){
         StringBuilder mergedStr = new StringBuilder();
@@ -107,7 +149,9 @@ public class MainApp {
     4. Хоёр тэмдэгт мөр өгөгдөв, хэрэв эдгээр тэмдэгт
     мөрүүд адил үсгүүдээр төгсдөг бол true үрдүн өгдөг.
     Энд,том жижиг үсгүүдийг ялгаагүй гэж үзнэ. Жишээ:
-    "Hiabc", "abc"→true"AbC", "HiaBc"→true"abc", "abXabc"→true
+    "Hiabc","abc"→true
+    "AbC","HiaBc"→true
+    "abc","abXabc"→true
     */
     String isSameLastChar(){
         String firstStr = inputString("Enter first a string: ");
