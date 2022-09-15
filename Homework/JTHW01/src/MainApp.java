@@ -196,7 +196,7 @@ public class MainApp {
     void reverseFileLine() throws IOException {
         File file = new File(filePath);
         Scanner fileInput = new Scanner(file);
-        File newFile  = new File("reversed_file.txt");
+        File newFile  = new File("src/reversed_file.txt");
         if (newFile.createNewFile()) {
             System.out.println("File created: " + newFile.getName());
         } else {
