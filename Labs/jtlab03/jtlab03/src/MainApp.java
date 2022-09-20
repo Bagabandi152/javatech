@@ -126,13 +126,18 @@ public class MainApp {
                     ", perimeter=" + getPerimeter() +
                     '}';
         }
+
+        public boolean isTriangle() {
+            return a + b > c && a + c > b && b + c > a;
+        }
     }
 
-    //Lab02 ---> 13.01
     public Scanner input(String txt){
         System.out.print(txt);
         return new Scanner(System.in);
     }
+
+    //Lab02 ---> 13.01
     public void testTriangleClass(){
         Triangle triangle = new Triangle();
         triangle.setA(input("Enter first a side: ").nextDouble());
@@ -141,5 +146,6 @@ public class MainApp {
         triangle.setColor(input("Enter color: ").nextLine());
         triangle.setFilled(input("Enter whether was filled: ").nextBoolean());
         System.out.println(triangle);
+        System.out.println(triangle.isTriangle() ? "This triangle exist." : "This triangle not exist.");
     }
 }
