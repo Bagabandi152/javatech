@@ -269,18 +269,17 @@ public class MainApp {
         GeometricObject tri1 = new Triangle(input("Enter first a side: ").nextDouble(), input("Enter second a side: ").nextDouble(), input("Enter third a side: ").nextDouble());
         System.out.println("Triangle2: ");
         GeometricObject tri2 = new Triangle(input("Enter first a side: ").nextDouble(), input("Enter second a side: ").nextDouble(), input("Enter third a side: ").nextDouble());
-        System.out.println("Circle: ");
-        GeometricObject circle = new Circle(input("Enter a radius: ").nextDouble());
-        System.out.println("Rectangle: ");
-        GeometricObject rect = new Rectangle(input("Enter first a side: ").nextDouble(), input("Enter second a side: ").nextDouble());
+        System.out.println("Circle1: ");
+        GeometricObject circle1 = new Circle(input("Enter a radius: ").nextDouble());
+        System.out.println("Circle2: ");
+        GeometricObject circle2 = new Circle(input("Enter a radius: ").nextDouble());
+        System.out.println("Rectangle1: ");
+        GeometricObject rect1 = new Rectangle(input("Enter first a side: ").nextDouble(), input("Enter second a side: ").nextDouble());
+        System.out.println("Rectangle2: ");
+        GeometricObject rect2 = new Rectangle(input("Enter first a side: ").nextDouble(), input("Enter second a side: ").nextDouble());
 
-        GeometricObject[] geoArr = new GeometricObject[4];
-        geoArr[0] = tri1;
-        geoArr[1] = tri2;
-        geoArr[2] = circle;
-        geoArr[3] = rect;
-
-        System.out.printf("Geometric object area sum: %.3f", sumArea(geoArr));
+        GeometricObject[] geoArr = { tri1, tri2, circle1, circle2, rect1, rect2 };
+        System.out.printf("Geometric objects area sum: %.3f", sumArea(geoArr));
     }
 
     public static double sumArea(GeometricObject[] a){
