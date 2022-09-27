@@ -1,5 +1,3 @@
-import com.sun.tools.javac.Main;
-
 import java.util.Scanner;
 
 public class MainApp {
@@ -8,6 +6,11 @@ public class MainApp {
             case 1: {
                 System.out.println("Problem01: ");
                 testCallable();
+                break;
+            }
+            case 2: {
+                System.out.println("Problem02: ");
+                testAbstractClass();
                 break;
             }
             default:{
@@ -48,5 +51,26 @@ public class MainApp {
         mobilePhone.dial(input("Enter mobile phone number: ").nextInt());
         deskPhone.answer();
         mobilePhone.answer();
+    }
+
+    void testAbstractClass(){
+        Kevin kevin = new Kevin(input("Enter x of Kevin: ").nextInt(), input("Enter y of Kevin: ").nextInt(), input("Enter age of Kevin: ").nextInt(), true, true);
+        Turtle turtle = new Turtle(input("Enter x of Turtle: ").nextInt(), input("Enter y of Turtle: ").nextInt(), input("Enter age of Turtle: ").nextInt());
+        Pigeon pigeon = new Pigeon(input("Enter x of Pigeon: ").nextInt(), input("Enter y of Pigeon: ").nextInt(), input("Enter age of Pigeon: ").nextInt());
+        kevin.getSwimming();
+        kevin.swim(input("Enter swim distance on x of Kevin: ").nextInt());
+        kevin.talk();
+        kevin.attack();
+        kevin.writingCode();
+        kevin.toString();
+        turtle.getSwimming();
+        turtle.attack();
+        turtle.swimMove(input("Enter swim distance on x of Turtle: ").nextInt(), input("Enter swim distance on y of Turtle: ").nextInt());
+        turtle.toString();
+        pigeon.getFlying();
+        pigeon.flyMove(input("Enter fly distance on x of Pigeon: ").nextInt(), input("Enter fly distance on x of Pigeon: ").nextInt());
+        pigeon.attack();
+        pigeon.talk();
+        pigeon.toString();
     }
 }
