@@ -1,4 +1,6 @@
-public class Octagon extends GeometricObject implements Cloneable, Comparable<Octagon>{
+import java.util.Date;
+
+public class Octagon extends GeometricObject implements Cloneable, Comparable<Octagon>, Colorable{
 
     double side;
 
@@ -41,6 +43,13 @@ public class Octagon extends GeometricObject implements Cloneable, Comparable<Oc
 
     @Override
     protected Object clone() throws CloneNotSupportedException {
-        return super.clone();
+        Octagon o = (Octagon) super.clone();
+        o.setDateCreated(new Date());
+        return o;
+    }
+
+    @Override
+    public void howToColor() {
+        System.out.println("Color all eight sides");
     }
 }

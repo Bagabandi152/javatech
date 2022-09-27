@@ -32,14 +32,23 @@ public abstract class GeometricObject{
         return filled;
     }
 
-    /** Set a new filled */
+    /**
+     * Set a new filled
+     *
+     * @return
+     */
     public void setFilled(boolean filled) {
         this.filled = filled;
     }
 
     /** Get dateCreated */
-    public java.util.Date getDateCreated() {
+    public Date getDateCreated() {
         return dateCreated;
+    }
+
+    /** Set dateCreated */
+    public void setDateCreated(Date dateCreated) {
+        this.dateCreated = dateCreated;
     }
 
     @Override
