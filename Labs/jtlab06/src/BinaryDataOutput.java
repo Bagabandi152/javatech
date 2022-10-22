@@ -21,7 +21,7 @@ public class BinaryDataOutput {
         try {
             output = new DataOutputStream(new FileOutputStream(file, isAppend));
             for (int i = 0; i < 125; i++) {
-                output.write(rand.nextInt(100));
+                output.writeInt(rand.nextInt(100));
             }
         } catch (IOException e) {
             throw new RuntimeException(e);
