@@ -53,7 +53,7 @@ public class Controller implements Initializable {
             correct.setVisible(false);
         }
         guessCount++;
-        guessCounterText.setText("Guesses: " + guessCount);
+        guessCounterText.setText("Оролдлого: " + guessCount);
     }
 
     @FXML
