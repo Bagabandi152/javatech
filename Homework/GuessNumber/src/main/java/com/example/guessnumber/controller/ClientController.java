@@ -1,4 +1,4 @@
-package com.example.guessnumber;
+package com.example.guessnumber.controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -11,7 +11,7 @@ import java.net.URL;
 import java.util.Random;
 import java.util.ResourceBundle;
 
-public class Controller implements Initializable {
+public class ClientController implements Initializable {
 
     private final Random random = new Random();
     private int randomNumber;
@@ -39,15 +39,15 @@ public class Controller implements Initializable {
 
     @FXML
     void checkGuess(ActionEvent event) {
-        if(Integer.parseInt(guess.getText()) == randomNumber){
+        if (Integer.parseInt(guess.getText()) == randomNumber) {
             downArrow.setVisible(false);
             upArrow.setVisible(false);
             correct.setVisible(true);
-        } else if(Integer.parseInt(guess.getText()) > randomNumber){
+        } else if (Integer.parseInt(guess.getText()) > randomNumber) {
             downArrow.setVisible(true);
             upArrow.setVisible(false);
             correct.setVisible(false);
-        } else if(Integer.parseInt(guess.getText()) < randomNumber){
+        } else if (Integer.parseInt(guess.getText()) < randomNumber) {
             downArrow.setVisible(false);
             upArrow.setVisible(true);
             correct.setVisible(false);
@@ -63,6 +63,6 @@ public class Controller implements Initializable {
         upArrow.setVisible(false);
         correct.setVisible(false);
         guessCount = 0;
-        guessCounterText.setText("Guesses: " + guessCount);
+        guessCounterText.setText("Оролдлого: " + guessCount);
     }
 }

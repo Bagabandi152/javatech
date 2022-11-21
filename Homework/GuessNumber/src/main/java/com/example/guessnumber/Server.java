@@ -9,11 +9,18 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.Objects;
 
-public class MainApp extends Application {
+/**
+ * @author Bagaa
+ * @project GuessNumber
+ * @created 21/11/2022 - 6:56 PM
+ * @purpose
+ * @definition
+ */
+public class Server extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("main.fxml")));
-        stage.setTitle("Санасан тоо таах тоглоом");
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("client.fxml")));
+        stage.setTitle("Санасан тоо таах тоглоом(Сервер)");
         stage.setScene(new Scene(root));
         stage.show();
     }
