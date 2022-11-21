@@ -76,7 +76,6 @@ public class ClientController implements Initializable {
     }
 
     public static boolean isNumeric(String string) {
-        System.out.println(String.format("Parsing string: \"%s\"", string));
         if (string == null || string.equals("")) {
             return false;
         }
@@ -91,7 +90,7 @@ public class ClientController implements Initializable {
 
     @FXML
     void reset(ActionEvent event) {
-        resetPlayer();
+        guess.setText("");
     }
 
     void resetPlayer() {
@@ -99,6 +98,7 @@ public class ClientController implements Initializable {
         downArrow.setVisible(false);
         upArrow.setVisible(false);
         correct.setVisible(false);
+        guess.setText("");
         guessCount = 0;
         guessCounterText.setText("Оролдлого: " + guessCount);
     }
