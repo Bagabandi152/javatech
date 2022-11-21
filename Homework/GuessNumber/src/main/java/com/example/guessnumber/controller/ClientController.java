@@ -6,6 +6,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 
 import java.net.URL;
@@ -20,6 +21,9 @@ public class ClientController implements Initializable {
 
     @FXML
     private TextField guess;
+
+    @FXML
+    private TextField username;
     @FXML
     private Text guessCounterText;
     @FXML
@@ -29,6 +33,8 @@ public class ClientController implements Initializable {
     @FXML
     private ImageView correct;
 
+    private Alert infoAlert;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         randomNumber = random.nextInt(100);
@@ -36,31 +42,45 @@ public class ClientController implements Initializable {
         downArrow.setVisible(false);
         upArrow.setVisible(false);
         correct.setVisible(false);
+
+        infoAlert = new Alert(Alert.AlertType.INFORMATION);
+        infoAlert.setTitle(null);
+        String s = "Таны оролдлогын тоо дууслаа.";
+        infoAlert.setContentText(s);
     }
 
     @FXML
     void checkGuess(ActionEvent event) {
-        if (isNumeric(guess.getText())) {
-            if (Integer.parseInt(guess.getText()) == randomNumber) {
-                downArrow.setVisible(false);
-                upArrow.setVisible(false);
-                correct.setVisible(true);
-            } else if (Integer.parseInt(guess.getText()) > randomNumber) {
-                downArrow.setVisible(true);
-                upArrow.setVisible(false);
-                correct.setVisible(false);
-            } else if (Integer.parseInt(guess.getText()) < randomNumber) {
-                downArrow.setVisible(false);
-                upArrow.setVisible(true);
-                correct.setVisible(false);
-            }
-            guessCount++;
-            guessCounterText.setText("Оролдлого: " + guessCount);
+        if (!username.getText().isEmpty()) {
+            if (isNumeric(guess.getText())) {
+                if (Integer.parseInt(guess.getText()) == randomNumber) {
+                    downArrow.setVisible(false);
+                    upArrow.setVisible(false);
+                    correct.setVisible(true);
+                } else if (Integer.parseInt(guess.getText()) > randomNumber) {
+                    downArrow.setVisible(true);
+                    upArrow.setVisible(false);
+                    correct.setVisible(false);
+                } else if (Integer.parseInt(guess.getText()) < randomNumber) {
+                    downArrow.setVisible(false);
+                    upArrow.setVisible(true);
+                    correct.setVisible(false);
+                }
+                guessCount++;
+                guessCounterText.setText("Оролдлого: " + guessCount);
 
-            if (guessCount == 3) {
-                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                if (guessCount == 5) {
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setTitle(null);
+                    String s = "Таны оролдлогын тоо дууслаа.";
+                    alert.setContentText(s);
+                    alert.showAndWait();
+                    resetPlayer();
+                }
+            } else {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle(null);
-                String s = "Таны оролдлогын тоо дууслаа.";
+                String s = "Зөвхөн бүхэл оруулах шаардлагатай.";
                 alert.setContentText(s);
                 alert.showAndWait();
                 resetPlayer();
@@ -68,7 +88,7 @@ public class ClientController implements Initializable {
         } else {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle(null);
-            String s = "Зөвхөн бүхэл оруулах шаардлагатай.";
+            String s = "Нэр оруулах шаардлагатай.";
             alert.setContentText(s);
             alert.showAndWait();
             resetPlayer();
@@ -91,6 +111,7 @@ public class ClientController implements Initializable {
     @FXML
     void reset(ActionEvent event) {
         guess.setText("");
+        username.setText("");
     }
 
     void resetPlayer() {
@@ -99,7 +120,18 @@ public class ClientController implements Initializable {
         upArrow.setVisible(false);
         correct.setVisible(false);
         guess.setText("");
+        username.setText("");
         guessCount = 0;
         guessCounterText.setText("Оролдлого: " + guessCount);
+    }
+
+    @FXML
+    void closeInfo(MouseEvent event) {
+        infoAlert.close();
+    }
+
+    @FXML
+    void openInfo(MouseEvent event) {
+        infoAlert.show();
     }
 }
