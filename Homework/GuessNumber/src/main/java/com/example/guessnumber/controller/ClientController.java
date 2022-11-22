@@ -1,5 +1,6 @@
 package com.example.guessnumber.controller;
 
+import com.example.guessnumber.model.Request;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -9,6 +10,10 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 
+import java.io.DataInputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
+import java.net.Socket;
 import java.net.URL;
 import java.util.Random;
 import java.util.ResourceBundle;
@@ -45,23 +50,43 @@ public class ClientController implements Initializable {
 
         infoAlert = new Alert(Alert.AlertType.INFORMATION);
         infoAlert.setTitle(null);
-        String s = "Таны оролдлогын тоо дууслаа.";
+        String s = "Сервер 1-100 хооронд нэг тоо санах бөгөөд та үүнийг \nхамгийн ихдээ 5 оролдлогоор бусад тоглогчдоос түрүүлж, \nтааж чадвал хожино.";
         infoAlert.setContentText(s);
     }
 
+    int port = 8000;
+    String host = "localhost";
+    Socket socket;
+
+    DataInputStream in;
+
     @FXML
-    void checkGuess(ActionEvent event) {
+    void checkGuess(ActionEvent event) throws IOException {
         if (!username.getText().isEmpty()) {
             if (isNumeric(guess.getText())) {
-                if (Integer.parseInt(guess.getText()) == randomNumber) {
+                socket = new Socket(host, port);
+
+                ObjectOutputStream toServer = new ObjectOutputStream(socket.getOutputStream());
+
+                // Create a Student object and send to the server
+                Request request = new Request(username.getText(), Integer.parseInt(guess.getText()));
+                toServer.writeObject(request);
+
+                in = new DataInputStream(socket.getInputStream());
+
+                System.out.println("Result: " + in.readUTF());
+
+                String check = in.readUTF();
+
+                if (check.equals("=")) {
                     downArrow.setVisible(false);
                     upArrow.setVisible(false);
                     correct.setVisible(true);
-                } else if (Integer.parseInt(guess.getText()) > randomNumber) {
+                } else if (check.equals(">")) {
                     downArrow.setVisible(true);
                     upArrow.setVisible(false);
                     correct.setVisible(false);
-                } else if (Integer.parseInt(guess.getText()) < randomNumber) {
+                } else if (check.equals("<")) {
                     downArrow.setVisible(false);
                     upArrow.setVisible(true);
                     correct.setVisible(false);
@@ -126,12 +151,7 @@ public class ClientController implements Initializable {
     }
 
     @FXML
-    void closeInfo(MouseEvent event) {
-        infoAlert.close();
-    }
-
-    @FXML
     void openInfo(MouseEvent event) {
-        infoAlert.show();
+        infoAlert.showAndWait();
     }
 }

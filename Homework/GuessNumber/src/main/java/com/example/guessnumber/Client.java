@@ -1,5 +1,6 @@
 package com.example.guessnumber;
 
+import com.example.guessnumber.thread.ThreadClient;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -7,7 +8,11 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.net.Socket;
 import java.util.Objects;
+import java.util.Scanner;
+
 /**
  * @author Bagaa
  * @project GuessNumber
@@ -19,7 +24,7 @@ public class Client extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("client.fxml")));
-        stage.setTitle("Санасан тоо таах тоглоом(Тоглогч)");
+        stage.setTitle("Санасан тоо таах тоглоом (Тоглогч)");
         stage.setScene(new Scene(root));
         stage.show();
     }
