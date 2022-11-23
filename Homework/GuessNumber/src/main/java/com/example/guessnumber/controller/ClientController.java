@@ -54,14 +54,14 @@ public class ClientController implements Initializable {
         infoAlert.setContentText(s);
     }
 
-    int port = 8000;
+    int port = 8888;
     String host = "localhost";
     Socket socket;
 
     DataInputStream in;
 
     @FXML
-    void checkGuess(ActionEvent event) throws IOException {
+    void checkGuess() throws IOException {
         if (!username.getText().isEmpty()) {
             if (isNumeric(guess.getText())) {
                 socket = new Socket(host, port);
@@ -78,18 +78,24 @@ public class ClientController implements Initializable {
 
                 String check = in.readUTF();
 
-                if (check.equals("=")) {
-                    downArrow.setVisible(false);
-                    upArrow.setVisible(false);
-                    correct.setVisible(true);
-                } else if (check.equals(">")) {
-                    downArrow.setVisible(true);
-                    upArrow.setVisible(false);
-                    correct.setVisible(false);
-                } else if (check.equals("<")) {
-                    downArrow.setVisible(false);
-                    upArrow.setVisible(true);
-                    correct.setVisible(false);
+                switch (check) {
+                    case "=" -> {
+                        downArrow.setVisible(false);
+                        upArrow.setVisible(false);
+                        correct.setVisible(true);
+                    }
+                    case ">" -> {
+                        downArrow.setVisible(true);
+                        upArrow.setVisible(false);
+                        correct.setVisible(false);
+                    }
+                    case "<" -> {
+                        downArrow.setVisible(false);
+                        upArrow.setVisible(true);
+                        correct.setVisible(false);
+                    }
+                    default -> {
+                    }
                 }
                 guessCount++;
                 guessCounterText.setText("Оролдлого: " + guessCount);

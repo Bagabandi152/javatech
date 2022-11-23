@@ -20,7 +20,7 @@ import java.util.Random;
  * @definition
  */
 public class Server {
-    int port = 8000;
+    int port = 8888;
     ObjectInputStream inputFromClient;
     ServerSocket server;
     Socket socket;
