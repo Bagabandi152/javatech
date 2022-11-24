@@ -1,5 +1,6 @@
 package com.example.guessnumber.controller;
 
+import com.example.guessnumber.model.Client;
 import com.example.guessnumber.model.Request;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -10,40 +11,37 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 
-import java.io.DataInputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
 import java.net.URL;
-import java.util.Random;
 import java.util.ResourceBundle;
 
 public class ClientController implements Initializable {
 
-    private final Random random = new Random();
-    private int randomNumber;
-    private int guessCount = 0;
+    private static int guessCount = 0;
 
     @FXML
-    private TextField guess;
+    private static TextField guess;
 
     @FXML
-    private TextField username;
+    private static TextField username;
     @FXML
-    private Text guessCounterText;
+    private static Text guessCounterText;
     @FXML
-    private ImageView upArrow;
+    private static ImageView upArrow;
     @FXML
-    private ImageView downArrow;
+    private static ImageView downArrow;
     @FXML
-    private ImageView correct;
+    private static ImageView correct;
 
     private Alert infoAlert;
+    private Client client;
+    int port = 8000;
+    String host = "localhost";
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        randomNumber = random.nextInt(100);
-        System.out.println(randomNumber);
         downArrow.setVisible(false);
         upArrow.setVisible(false);
         correct.setVisible(false);
@@ -52,56 +50,21 @@ public class ClientController implements Initializable {
         infoAlert.setTitle(null);
         String s = "Сервер 1-100 хооронд нэг тоо санах бөгөөд та үүнийг \nхамгийн ихдээ 5 оролдлогоор бусад тоглогчдоос түрүүлж, \nтааж чадвал хожино.";
         infoAlert.setContentText(s);
+
+        try {
+            client = new Client(new Socket(host, port));
+            System.out.println("Connected to server.");
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
     }
 
-    int port = 8000;
-    String host = "localhost";
-    Socket socket;
-
-    DataInputStream in;
-
     @FXML
-    void checkGuess(ActionEvent event) throws IOException {
+    void checkGuess(ActionEvent event) {
         if (!username.getText().isEmpty()) {
             if (isNumeric(guess.getText())) {
-                socket = new Socket(host, port);
-
-                ObjectOutputStream toServer = new ObjectOutputStream(socket.getOutputStream());
-
-                // Create a Student object and send to the server
-                Request request = new Request(username.getText(), Integer.parseInt(guess.getText()));
-                toServer.writeObject(request);
-
-                in = new DataInputStream(socket.getInputStream());
-
-                System.out.println("Result: " + in.readUTF());
-
-                String check = in.readUTF();
-
-                if (check.equals("=")) {
-                    downArrow.setVisible(false);
-                    upArrow.setVisible(false);
-                    correct.setVisible(true);
-                } else if (check.equals(">")) {
-                    downArrow.setVisible(true);
-                    upArrow.setVisible(false);
-                    correct.setVisible(false);
-                } else if (check.equals("<")) {
-                    downArrow.setVisible(false);
-                    upArrow.setVisible(true);
-                    correct.setVisible(false);
-                }
-                guessCount++;
-                guessCounterText.setText("Оролдлого: " + guessCount);
-
-                if (guessCount == 5) {
-                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                    alert.setTitle(null);
-                    String s = "Таны оролдлогын тоо дууслаа.";
-                    alert.setContentText(s);
-                    alert.showAndWait();
-                    resetPlayer();
-                }
+                client.sendMessageToServer(username.getText() + ":" + guess.getText());
+                client.receiveMessageFromServer();
             } else {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle(null);
@@ -114,6 +77,33 @@ public class ClientController implements Initializable {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle(null);
             String s = "Нэр оруулах шаардлагатай.";
+            alert.setContentText(s);
+            alert.showAndWait();
+            resetPlayer();
+        }
+    }
+
+    public static void checkAnswer(String messageFromServer) {
+        if (messageFromServer.equals("=")) {
+            downArrow.setVisible(false);
+            upArrow.setVisible(false);
+            correct.setVisible(true);
+        } else if (messageFromServer.equals(">")) {
+            downArrow.setVisible(true);
+            upArrow.setVisible(false);
+            correct.setVisible(false);
+        } else if (messageFromServer.equals("<")) {
+            downArrow.setVisible(false);
+            upArrow.setVisible(true);
+            correct.setVisible(false);
+        }
+        guessCount++;
+        guessCounterText.setText("Оролдлого: " + guessCount);
+
+        if (guessCount == 5) {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle(null);
+            String s = "Таны оролдлогын тоо дууслаа.";
             alert.setContentText(s);
             alert.showAndWait();
             resetPlayer();
@@ -139,8 +129,7 @@ public class ClientController implements Initializable {
         username.setText("");
     }
 
-    void resetPlayer() {
-        randomNumber = random.nextInt(100);
+    public static void resetPlayer() {
         downArrow.setVisible(false);
         upArrow.setVisible(false);
         correct.setVisible(false);
