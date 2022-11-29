@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8e189fc0-9d1a-497a-80d8-3f536bf71510" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/prob01/Hex2Dec.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/prob01/PrimeNumberMethod.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/homework.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/prob02/MainApp.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/prob02/StackOfIntegers.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -36,7 +37,20 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.MainApp">
+    <configuration name="MainApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="prob02.MainApp" />
+      <module name="jtlab13" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="prob02.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="PrimeNumberMethod" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="prob01.PrimeNumberMethod" />
       <module name="jtlab13" />
@@ -52,6 +66,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.MainApp" />
         <item itemvalue="Application.PrimeNumberMethod" />
       </list>
     </recent_temporary>
