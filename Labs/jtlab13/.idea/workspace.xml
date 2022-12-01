@@ -2,10 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8e189fc0-9d1a-497a-80d8-3f536bf71510" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/homework.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/prob02/MainApp.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/prob02/StackOfIntegers.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/hw/Financial.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/hw/Tax.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/prob01/Hex2Dec.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/prob01/Hex2Dec.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/prob02/MainApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/prob02/MainApp.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

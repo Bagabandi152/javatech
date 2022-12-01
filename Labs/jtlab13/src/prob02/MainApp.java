@@ -1,9 +1,8 @@
 package prob02;
 
 import java.util.Scanner;
-import java.util.function.BinaryOperator;
+import java.util.function.BiPredicate;
 import java.util.function.Consumer;
-import java.util.function.Predicate;
 
 public class MainApp {
 
@@ -21,8 +20,8 @@ public class MainApp {
 
     Consumer<Integer> consumer = (num) -> {
         int factor = 2;
-        while (atLeast.apply(factor, num) == 1) {
-            if (isDivider.apply(factor, num) == 1) {
+        while (atLeast.test(factor, num)) {
+            if (isDivider.test(factor, num)) {
                 stack.push(factor);
                 num /= factor;
             } else {
@@ -35,21 +34,8 @@ public class MainApp {
         }
     };
 
-    static BinaryOperator<Integer> atLeast = (factor, num) -> {
-        if (factor <= num) {
-            return 1;
-        } else {
-            return 0;
-        }
-    };
+    static BiPredicate<Integer, Integer> atLeast = (factor, num) -> factor <= num;
 
-
-    static BinaryOperator<Integer> isDivider = (factor, num) -> {
-        if (num % factor == 0) {
-            return 1;
-        } else {
-            return 0;
-        }
-    };
+    static BiPredicate<Integer, Integer> isDivider = (factor, num) -> num%factor == 0;
 
 }

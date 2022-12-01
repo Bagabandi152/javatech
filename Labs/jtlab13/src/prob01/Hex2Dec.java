@@ -2,8 +2,6 @@ package prob01;
 
 import java.util.Scanner;
 import java.util.function.Function;
-import java.util.function.Supplier;
-import java.util.function.UnaryOperator;
 
 public class Hex2Dec {
 
