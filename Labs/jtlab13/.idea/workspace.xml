@@ -2,11 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8e189fc0-9d1a-497a-80d8-3f536bf71510" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/hw/Financial.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/hw/Tax.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/hw/bod10_9/Course.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/hw/bod10_9/ReviseCourse.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/prob01/Hex2Dec.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/prob01/Hex2Dec.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/prob02/MainApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/prob02/MainApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/jtlab13/prob01/Hex2Dec.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/jtlab13/prob01/Hex2Dec.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/jtlab13/prob02/MainApp.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/jtlab13/prob02/MainApp.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hw/Financial.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/hw/bod10_8/Financial.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hw/Tax.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/hw/bod10_8/Tax.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,13 +35,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true"
   }
-}</component>
-  <component name="RunManager" selected="Application.MainApp">
+}]]></component>
+  <component name="RunManager" selected="Application.ReviseCourse">
+    <configuration name="Financial" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="hw.bod10_8.Financial" />
+      <module name="jtlab13" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="hw.bod10_8.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="MainApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="prob02.MainApp" />
       <module name="jtlab13" />
@@ -65,8 +82,23 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="ReviseCourse" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="hw.bod10_9.ReviseCourse" />
+      <module name="jtlab13" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="hw.bod10_9.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.ReviseCourse" />
+        <item itemvalue="Application.Financial" />
         <item itemvalue="Application.MainApp" />
         <item itemvalue="Application.PrimeNumberMethod" />
       </list>
