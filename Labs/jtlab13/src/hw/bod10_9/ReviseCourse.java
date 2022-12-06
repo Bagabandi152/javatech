@@ -6,7 +6,7 @@ public class ReviseCourse {
         Course course = new Course("Java technology");
 
         for (int i = 0; i < 10; i++) {
-            course.runDropStudent("Student " + (i + 1), Course::addStudent);;
+            course.runAddStudent("Student " + (i + 1), Course::addStudent);;
         }
 
         String[] students = course.getStudents();

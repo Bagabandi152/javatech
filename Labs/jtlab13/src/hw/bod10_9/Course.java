@@ -20,7 +20,7 @@ public class Course implements Cloneable {
         students[numberOfStudents++] = student;
     }
 
-    public void runStartStudent(String student, Consumer<String> customer) {
+    public void runAddStudent(String student, Consumer<String> customer) {
         customer.accept(student);
     }
 
