@@ -4,7 +4,8 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 public class AnalyzeNumbers {
-    public static void main(String[] args) {
+
+    AnalyzeNumbers(){
         Scanner input = new Scanner(System.in);
         System.out.print("Enter the number of items: ");
         int n = input.nextInt();
@@ -20,5 +21,9 @@ public class AnalyzeNumbers {
 
         System.out.println("Average is " + average);
         System.out.println("Number of elements above the average is " + count);
+    }
+
+    public static void main(String[] args) {
+        new AnalyzeNumbers();
     }
 }
