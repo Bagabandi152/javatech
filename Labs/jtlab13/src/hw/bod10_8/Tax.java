@@ -17,7 +17,6 @@ public class Tax {
         this.brackets = brackets;
         this.rates = rates;
         this.taxableIncome = taxableIncome;
-
     }
 
     public int getFilingStatus() {

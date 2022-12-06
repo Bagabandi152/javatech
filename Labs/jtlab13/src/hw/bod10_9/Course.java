@@ -10,7 +10,6 @@ public class Course implements Cloneable {
     }
 
     public void addStudent(String student) {
-
         if (numberOfStudents >= students.length) {
             String[] temp = new String[students.length * 2];
             System.arraycopy(students, 0, temp, 0, students.length);
@@ -20,7 +19,6 @@ public class Course implements Cloneable {
     }
 
     public String[] getStudents() {
-
         return students;
     }
 
@@ -33,11 +31,8 @@ public class Course implements Cloneable {
     }
 
     public void dropStudent(String student) {
-
         for (int i = 0; i < students.length; i++) {
-
             if (student.equalsIgnoreCase(students[i])) {
-
                 students[i] = null; // sets dropped student's value to null
                 numberOfStudents--;
                 while (i < numberOfStudents) {
@@ -47,7 +42,6 @@ public class Course implements Cloneable {
                 break;
             }
         }
-
     }
 
     public void clear() {
