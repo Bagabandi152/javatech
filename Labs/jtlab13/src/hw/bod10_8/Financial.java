@@ -22,7 +22,7 @@ public class Financial {
 
         System.out.printf("%-20s%-12s%-4s%21s%16s\n", s1, s2, s3, s4, s5);
         for (int i = 50000; i <= 60000; i += 1000) {
-            System.out.printf("%4d%19.0f%16.0f%16.0f%20.0f\n", i, new Tax(Tax.SINGLE_FILER, brackets, rates, i).getTax(), new Tax(Tax.MARRIED_JOINTLY_OR_QUALIFYING_WIDOW, brackets, rates, i).getTax(), new Tax(Tax.MARRIED_SEPARATELY, brackets, rates, i).getTax(), new Tax(Tax.HEAD_OF_HOUSEHOLD, brackets, rates, i).getTax());
+            System.out.printf("%4d%19.0f%16.0f%16.0f%20.0f\n", i, new Tax(Tax.SINGLE_FILER, brackets, rates, i).bringTax(Tax::getTax), new Tax(Tax.MARRIED_JOINTLY_OR_QUALIFYING_WIDOW, brackets, rates, i).bringTax(Tax::getTax), new Tax(Tax.MARRIED_SEPARATELY, brackets, rates, i).bringTax(Tax::getTax), new Tax(Tax.HEAD_OF_HOUSEHOLD, brackets, rates, i).bringTax(Tax::getTax));
         }
     }
 

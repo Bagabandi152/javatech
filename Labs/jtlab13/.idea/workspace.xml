@@ -3,7 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="8e189fc0-9d1a-497a-80d8-3f536bf71510" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hw/bod10_8/Financial.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/hw/bod10_8/Financial.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hw/bod10_8/Tax.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/hw/bod10_8/Tax.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/hw/bod10_9/Course.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/hw/bod10_9/Course.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hw/bod10_9/ReviseCourse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/hw/bod10_9/ReviseCourse.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,7 +39,7 @@
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager" selected="Application.ReviseCourse">
+  <component name="RunManager" selected="Application.Financial">
     <configuration name="Financial" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="hw.bod10_8.Financial" />
       <module name="jtlab13" />
@@ -91,8 +94,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.ReviseCourse" />
         <item itemvalue="Application.Financial" />
+        <item itemvalue="Application.ReviseCourse" />
         <item itemvalue="Application.MainApp" />
         <item itemvalue="Application.PrimeNumberMethod" />
       </list>

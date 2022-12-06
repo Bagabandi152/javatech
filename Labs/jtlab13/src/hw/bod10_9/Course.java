@@ -1,21 +1,27 @@
 package hw.bod10_9;
 
+import java.util.function.Consumer;
+
 public class Course implements Cloneable {
     private String courseName;
-    private String[] students = new String[10];
-    private int numberOfStudents;
+    private static String[] students = new String[10];
+    private static int numberOfStudents;
 
     public Course(String courseName) {
         this.courseName = courseName;
     }
 
-    public void addStudent(String student) {
+    public static void addStudent(String student) {
         if (numberOfStudents >= students.length) {
             String[] temp = new String[students.length * 2];
             System.arraycopy(students, 0, temp, 0, students.length);
             students = temp;
         }
         students[numberOfStudents++] = student;
+    }
+
+    public void runStartStudent(String student, Consumer<String> customer) {
+        customer.accept(student);
     }
 
     public String[] getStudents() {
@@ -30,7 +36,7 @@ public class Course implements Cloneable {
         return courseName;
     }
 
-    public void dropStudent(String student) {
+    public static void dropStudent(String student) {
         for (int i = 0; i < students.length; i++) {
             if (student.equalsIgnoreCase(students[i])) {
                 students[i] = null; // sets dropped student's value to null
@@ -42,6 +48,10 @@ public class Course implements Cloneable {
                 break;
             }
         }
+    }
+
+    public void runDropStudent(String student, Consumer<String> consumer) {
+        consumer.accept(student);
     }
 
     public void clear() {
