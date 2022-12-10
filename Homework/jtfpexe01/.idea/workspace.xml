@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8694394e-e564-4f23-8d14-2316b5dc27a0" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/bodlogo02/FileReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/bodlogo02/FileReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/jtfpexe01/bodlogo02/FileReader.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/jtfpexe01/bodlogo02/FileReader.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bodlogo02/file.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/bodlogo02/file.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
