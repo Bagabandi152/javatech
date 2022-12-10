@@ -22,7 +22,6 @@ public class FileReader {
                     arrayList.add(lineTxt);
                 }
             }
-
             Stream<String> stream = arrayList.stream();
             System.out.println("\nAnswer: ");
             if (stream.distinct().collect(Collectors.toList()).size() >= 10) {
