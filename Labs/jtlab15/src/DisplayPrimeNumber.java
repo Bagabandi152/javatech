@@ -1,14 +1,13 @@
 import java.util.ArrayList;
 import java.util.Optional;
 import java.util.Scanner;
-import java.util.stream.Collectors;
 
 public class DisplayPrimeNumber {
 
     Scanner input;
 
     DisplayPrimeNumber() {
-        System.out.println("Enter length of numbers: ");
+        System.out.print("Enter length of numbers: ");
         input = new Scanner(System.in);
         Integer len = input.nextInt();
         ArrayList<Integer> primes = new ArrayList<>(len);
@@ -19,7 +18,11 @@ public class DisplayPrimeNumber {
         }
 
         System.out.println("Entered prime numbers: ");
-        printArr((ArrayList<Integer>) primes.stream().filter(elm -> isPrime(elm).isPresent()).collect(Collectors.toList()));
+        primes.stream().filter(this::checkPrime).forEach(elm -> System.out.print(elm + " "));
+    }
+
+    Boolean checkPrime(Integer elm) {
+        return isPrime(elm).isPresent();
     }
 
     Optional<Integer> isPrime(Integer num) {
@@ -29,7 +32,7 @@ public class DisplayPrimeNumber {
         } else if (num == 2) {
             check = num;
         } else {
-            for (int i = 3; i <= Math.floor(Math.sqrt(num)); i++) {
+            for (int i = 2; i <= Math.floor(Math.sqrt(num)); i++) {
                 if (num % i == 0) {
                     s++;
                 }
@@ -41,10 +44,6 @@ public class DisplayPrimeNumber {
             }
         }
         return Optional.ofNullable(check);
-    }
-
-    void printArr(ArrayList<Integer> arrayList) {
-        arrayList.stream().forEach(elm -> System.out.print(elm + " "));
     }
 
     public static void main(String[] args) {
