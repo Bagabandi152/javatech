@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b0635464-6a78-439a-aa0d-4f10aefd67cd" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/files/MyNativeLand.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/hw/SortAscTxt.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/hw/SquareRootMultiple.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/jtlab15/DisplayPrimeNumber.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/jtlab15/DisplayPrimeNumber.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DisplayPrimeNumber.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DisplayPrimeNumber.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,7 +39,7 @@
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager" selected="Application.SquareRootMultiple">
+  <component name="RunManager" selected="Application.SortAscTxt">
     <configuration name="DisplayPrimeNumber" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="DisplayPrimeNumber" />
       <module name="jtlab15" />
@@ -80,8 +75,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.SquareRootMultiple" />
         <item itemvalue="Application.SortAscTxt" />
+        <item itemvalue="Application.SquareRootMultiple" />
         <item itemvalue="Application.DisplayPrimeNumber" />
       </list>
     </recent_temporary>
