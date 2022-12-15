@@ -39,7 +39,7 @@
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager" selected="Application.SortAscTxt">
+  <component name="RunManager" selected="Application.SquareRootMultiple">
     <configuration name="DisplayPrimeNumber" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="DisplayPrimeNumber" />
       <module name="jtlab15" />
@@ -75,8 +75,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.SortAscTxt" />
         <item itemvalue="Application.SquareRootMultiple" />
+        <item itemvalue="Application.SortAscTxt" />
         <item itemvalue="Application.DisplayPrimeNumber" />
       </list>
     </recent_temporary>
