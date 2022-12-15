@@ -3,7 +3,6 @@ import java.util.Optional;
 import java.util.Scanner;
 
 public class DisplayPrimeNumber {
-
     Scanner input;
 
     DisplayPrimeNumber() {
